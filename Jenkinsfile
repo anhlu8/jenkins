@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('Build'){
+        stage('Upload to AWS'){
             steps {
                 sh 'echo "Hello World"'
                 sh '''
@@ -9,5 +9,8 @@ pipeline {
                 '''
             }
         }
+    }
+    withAWS(region:'us-east-1') {
+        s3Upload(file:'index.html', bucket:'udacity-jenkins-project', path:'/')
     }
 }
