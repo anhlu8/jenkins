@@ -8,7 +8,7 @@ pipeline {
                     echo "Multiline shell steps works too"
                 '''
                 withAWS(credentials:'aws-static', region:'us-east-1') {
-                    s3Upload(file:'index.html', bucket:'udacity-jenkins-project', path:'/index.html')
+                    s3Upload(file:'index.html', bucket:'udacity-jenkins-project', path:'index.html')
                 }
             }
         }
